@@ -11,16 +11,10 @@ exec --no-startup-id dex --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
-# Evitar DPMS roto
-exec_always --no-startup-id xset -dpms
-exec_always --no-startup-id xset s off
 
-# Lock estable para i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -n -c 000000
-
-# xss-lock grabs a logind suspend inhibit l ockand will use i3lock to lock the
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --noforkRR
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager
 exec --no-startup-id nm-applet
@@ -32,13 +26,13 @@ exec_always --no-startup-id autotiling
 exec_always picom 
 
 #PERMISOS
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #FONT
 font pango:DejaVu Sans Mono 8
 
 #RESOLUCION
-exec_always --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 180
+exec_always --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 180 -vsync
 #exec_always --no-startup-id xrandr --output HDMI-A-0 --mode 3840x2160 --rate 60
 
 #POLYBAR
